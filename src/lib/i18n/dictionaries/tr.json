@@ -1,0 +1,227 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "paragliding": "Yamaç Paraşütü",
+    "tandem": "Tandem Uçuş",
+    "prices": "Fiyatlar",
+    "booking": "Rezervasyon",
+    "safety": "Güvenlik",
+    "pilot": "Pilot",
+    "gallery": "Galeri",
+    "blog": "Blog",
+    "faq": "S.S.S.",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "title": "Antalya'nın Eşsiz Manzarasında Gökyüzüyle Buluşun",
+    "subtitle": "Profesyonel pilotlarımız eşliğinde güvenli ve unutulmaz bir yamaç paraşütü deneyimi yaşayın. Falezler ve Akdeniz'in mavisini gökyüzünden keşfedin.",
+    "cta_whatsapp": "WhatsApp'tan Bilgi Al",
+    "cta_conditions": "Uçuş Koşullarını Gör",
+    "cta_map": "Kalkış Noktasına Git"
+  },
+  "weather": {
+    "title": "Anlık Uçuş Koşulları",
+    "wind": "Rüzgar",
+    "wind_direction": "Yön",
+    "wind_speed": "Hız",
+    "temperature": "Sıcaklık",
+    "precipitation": "Yağış",
+    "visibility": "Görüş Mesafesi",
+    "flight_status": "Uçuş Durumu",
+    "last_update": "Son Güncelleme",
+    "status_good": "Uçuşa Uygun",
+    "status_caution": "Dikkatli Uçuş",
+    "status_bad": "Uçuşa Uygun Değil",
+    "disclaimer": "Değerler anlık olarak ölçülmektedir, kalkış anındaki rüzgar durumu belirleyicidir.",
+    "unavailable": "Veri alınamıyor"
+  },
+  "booking": {
+    "title": "Rezervasyon Talebi",
+    "subtitle": "Uçuş için hemen yerinizi ayırtın. Ekibimiz sizinle en kısa sürede iletişime geçecektir.",
+    "full_name": "Ad Soyad",
+    "whatsapp_number": "WhatsApp Numarası",
+    "person_count": "Kişi Sayısı",
+    "preferred_date": "Tercih Edilen Tarih",
+    "alternative_date": "Alternatif Tarih",
+    "preferred_time": "Tercih Edilen Saat",
+    "weight": "Ağırlık (kg)",
+    "height": "Boy (cm)",
+    "accommodation": "Konaklama Bölgesi",
+    "special_note": "Özel Notunuz",
+    "photo_video": "Fotoğraf ve Video İstiyorum",
+    "submit": "Rezervasyon Talebi Gönder",
+    "summary_title": "Talebiniz Alındı",
+    "summary_message": "Talebiniz başarıyla oluşturuldu. WhatsApp üzerinden iletişime geçebilirsiniz.",
+    "send_whatsapp": "WhatsApp'a Git",
+    "validation_required": "Bu alan zorunludur",
+    "validation_phone": "Geçerli bir telefon numarası giriniz",
+    "validation_date": "Geçerli bir tarih seçiniz"
+  },
+  "pilot": {
+    "title": "Pilotumuzla Tanışın",
+    "subtitle": "Binlerce saatlik uçuş tecrübesiyle gökyüzünde güvendesiniz.",
+    "level": "T5 Tandem Pilotu",
+    "tandem_qualification": "Ticari Tandem Sertifikası",
+    "certifications": "Sertifikalar",
+    "education": "Eğitim",
+    "experience": "Tecrübe",
+    "federation": "THK Onaylı",
+    "view_certificate": "Sertifikayı Görüntüle"
+  },
+  "gallery": {
+    "title": "Uçuşlarımızdan Kareler",
+    "subtitle": "Gökyüzündeki heyecan dolu anlarımıza göz atın.",
+    "categories": {
+      "all": "Tümü",
+      "flight": "Uçuş",
+      "takeoff": "Kalkış",
+      "aerial": "Havadan Çekimler",
+      "mediterranean": "Akdeniz",
+      "sunset": "Gün Batımı",
+      "customers": "Misafirlerimiz"
+    }
+  },
+  "how_it_works": {
+    "title": "Nasıl Gerçekleşir?",
+    "steps": [
+      {
+        "title": "Buluşma",
+        "description": "Kalkış alanında veya belirlenen buluşma noktasında bir araya geliyoruz."
+      },
+      {
+        "title": "Hazırlık",
+        "description": "Kuşanma işlemi ve güvenlik ekipmanlarının takılması."
+      },
+      {
+        "title": "Brifing",
+        "description": "Kalkış ve uçuş sırasında dikkat edilecek hususların aktarılması."
+      },
+      {
+        "title": "Kalkış",
+        "description": "Pilotumuzla birlikte birkaç adım atarak havalanma."
+      },
+      {
+        "title": "Uçuş",
+        "description": "Falezlerin ve denizin üzerinden süzülerek manzaranın tadını çıkarma."
+      },
+      {
+        "title": "Havada Fotoğraf",
+        "description": "GoPro ile en güzel anların fotoğraf ve video kaydı."
+      },
+      {
+        "title": "Akrobasi (Opsiyonel)",
+        "description": "İsteyen misafirlerimiz için heyecan verici manevralar."
+      },
+      {
+        "title": "İniş",
+        "description": "İniş alanına yumuşak ve güvenli bir şekilde ayak basma."
+      },
+      {
+        "title": "Medya Teslimi",
+        "description": "Uçuş sırasındaki fotoğraf ve videoların anında telefonunuza aktarılması."
+      }
+    ]
+  },
+  "why_us": {
+    "title": "Neden Bizi Seçmelisiniz?",
+    "items": [
+      "T5 Seviye Sertifikalı Pilotlar",
+      "En Üst Düzey Güvenlik Standartları",
+      "Yüksek Kaliteli Uçuş Ekipmanları",
+      "Modern ve Bakımlı Malzemeler",
+      "Antalya'nın En Güzel Kalkış Noktası",
+      "Yüksek Çözünürlüklü 4K Çekimler",
+      "Esnek Uçuş Saatleri",
+      "Müşteri Memnuniyeti Garantisi"
+    ]
+  },
+  "safety": {
+    "title": "Önce Güvenlik",
+    "subtitle": "Uçuşlarımızın tamamı uluslararası sivil havacılık standartlarına uygun olarak gerçekleştirilmektedir.",
+    "disclaimer": "Kalp rahatsızlığı, astım, hamilelik veya yükseklik korkusu gibi durumları olanların uçuş öncesi bilgilendirme yapması zorunludur."
+  },
+  "faq": {
+    "title": "Sıkça Sorulan Sorular",
+    "items": [
+      {
+        "q": "Yamaç paraşütü yapmak için tecrübeye ihtiyacım var mı?",
+        "a": "Hayır, hiçbir tecrübeye ihtiyacınız yok. Uzman pilotlarımız tüm süreci yönetecek, siz sadece manzaranın tadını çıkaracaksınız."
+      },
+      {
+        "q": "Kilo veya boy sınırı var mı?",
+        "a": "Uçuşlar için genellikle 110 kg'a kadar ağırlık sınırı bulunmaktadır. Ancak rüzgar durumuna göre bu limit değişebilir. 105 kg üzerindeyseniz lütfen rezervasyon öncesi bilgi veriniz."
+      },
+      {
+        "q": "Ne giymeliyim?",
+        "a": "Rahat kıyafetler (spor ayakkabı, tişört/sweatshirt ve mevsime göre bir rüzgarlık) ve güneş gözlüğü tercih etmelisiniz. Terlik, sandalet veya topuklu ayakkabı ile uçuş yapılamaz."
+      },
+      {
+        "q": "Uçuş ne kadar sürüyor?",
+        "a": "Uçuş süremiz hava ve termik koşullara bağlı olarak genellikle 15 ile 25 dakika arasında değişmektedir."
+      },
+      {
+        "q": "Telefonumla çekim yapabilir miyim?",
+        "a": "Güvenlik nedeniyle kişisel telefon veya kameralarınızla çekim yapmanıza izin verilmemektedir. Pilotlarımız profesyonel aksiyon kameralarıyla yüksek kalitede çekim yapmaktadır."
+      },
+      {
+        "q": "Kimler uçamaz?",
+        "a": "Hamileler, kalp rahatsızlığı, tansiyon veya sara (epilepsi) hastalığı olanlar ile alkol etkisi altında olan kişilerin uçması uygun değildir."
+      },
+      {
+        "q": "Yaş sınırı nedir?",
+        "a": "4 yaş ve üzeri herkes aile onay ve muvafakatnamesi ile uçabilir. Üst yaş sınırımız yoktur, fiziki durumu elverişli olan her birey uçuş yapabilir."
+      },
+      {
+        "q": "Hava şartları uygun olmazsa ne olur?",
+        "a": "Uçuş güvenliği her şeyden önemlidir. Rüzgar veya hava koşulları uçuşa elverişli değilse, rezervasyonunuz iptal edilebilir veya uygun olan başka bir güne/saate ertelenebilir."
+      },
+      {
+        "q": "Rezervasyon ne kadar önceden yapılmalı?",
+        "a": "Özellikle yaz aylarında yoğunluk yaşandığı için en az 2-3 gün önceden rezervasyon yaptırmanızı tavsiye ederiz."
+      },
+      {
+        "q": "Kalkış esnasında ne yapmalıyım?",
+        "a": "Pilotunuzun komutuyla birlikte sadece birkaç adım hızlıca yürümeniz veya koşmanız yeterlidir. Kesinlikle zıplamamalı veya oturmamalısınız."
+      },
+      {
+        "q": "Havada midem bulanır mı?",
+        "a": "Çok nadir rastlanan bir durumdur. Ancak araç tutması probleminiz varsa, opsiyonel olarak sunulan akrobasi hareketlerini istemediğinizi uçuş öncesi pilotunuza iletebilirsiniz."
+      }
+    ]
+  },
+  "map": {
+    "title": "Bize Ulaşın",
+    "takeoff_point": "Kalkış Noktası",
+    "get_directions": "Yol Tarifi Al"
+  },
+  "footer": {
+    "description": "Antalya'nın en prestijli yamaç paraşütü deneyimi. Falezlerin ve Akdeniz'in eşsiz manzarası eşliğinde gökyüzünde özgürlüğü hissedin.",
+    "quick_links": "Hızlı Bağlantılar",
+    "legal": "Yasal",
+    "privacy": "Gizlilik Politikası",
+    "kvkk": "KVKK Aydınlatma Metni",
+    "cookies": "Çerez Politikası",
+    "consent": "Uçuş Taahhütnamesi",
+    "copyright": "Tüm hakları saklıdır."
+  },
+  "meta": {
+    "home_title": "Antalya Yamaç Paraşütü | Güvenli Tandem Uçuşu",
+    "home_description": "Antalya Varyant'ta uzman pilotlar eşliğinde güvenli tandem yamaç paraşütü. Eşsiz Akdeniz ve falez manzarasıyla unutulmaz bir uçuş deneyimi için hemen rezervasyon yapın."
+  },
+  "common": {
+    "read_more": "Devamını Oku",
+    "back": "Geri Dön",
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "close": "Kapat",
+    "open_whatsapp": "WhatsApp'ı Aç",
+    "book_now": "Hemen Yer Ayırt"
+  },
+  "pricing": {
+    "title": "Uçuş Fiyatları",
+    "subtitle": "Unutulmaz bir deneyim için şeffaf fiyatlandırma",
+    "contact_for_price": "Güncel Fiyat İçin Ulaşın",
+    "season_2026": "2026 Sezonu",
+    "whatsapp_price": "WhatsApp'tan Fiyat Al"
+  }
+}

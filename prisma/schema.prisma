@@ -1,0 +1,98 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model SiteSettings {
+  id              String   @id @default("main")
+  brandName       String   @default("[ADMIN TARAFINDAN DOLDURULACAK]")
+  phone           String   @default("[ADMIN TARAFINDAN DOLDURULACAK]")
+  whatsappNumber  String   @default("")
+  email           String   @default("")
+  address         String   @default("[ADMIN TARAFINDAN DOLDURULACAK]")
+  latitude        Float    @default(36.8769)
+  longitude       Float    @default(30.6525)
+  instagramUrl    String   @default("")
+  youtubeUrl      String   @default("")
+  googleMapsUrl   String   @default("")
+  flightStatus    String   @default("normal")
+  flightMessage   String   @default("")
+  updatedAt       DateTime @updatedAt
+}
+
+model Pilot {
+  id                  String        @id @default(cuid())
+  name                String
+  photoUrl            String?
+  level               String?
+  tandemQualification String?
+  certifications      String?
+  education           String?
+  flightExperience    String?
+  federation          String?
+  bio                 String?
+  bioEn               String?
+  sortOrder           Int           @default(0)
+  isActive            Boolean       @default(true)
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
+  certificates        Certificate[]
+}
+
+model Certificate {
+  id           String   @id @default(cuid())
+  pilotId      String
+  pilot        Pilot    @relation(fields: [pilotId], references: [id], onDelete: Cascade)
+  title        String
+  issuingBody  String?
+  issueDate    String?
+  maskedNumber String?
+  documentUrl  String?
+  isVerified   Boolean  @default(false)
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+}
+
+model GalleryItem {
+  id           String   @id @default(cuid())
+  type         String
+  title        String
+  category     String
+  url          String
+  thumbnailUrl String?
+  altText      String
+  filename     String
+  hasConsent   Boolean  @default(false)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+}
+
+model Booking {
+  id                String   @id @default(cuid())
+  fullName          String
+  whatsappNumber    String
+  personCount       Int
+  preferredDate     String
+  alternativeDate   String?
+  preferredTime     String?
+  weightPerPerson   String?
+  height            String?
+  accommodationArea String?
+  specialNote       String?
+  photoVideoRequest Boolean  @default(false)
+  status            String   @default("new")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model AdminUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String?
+  createdAt    DateTime  @default(now())
+  lastLoginAt  DateTime?
+}

@@ -1,0 +1,227 @@
+{
+  "nav": {
+    "home": "Home",
+    "paragliding": "Paragliding",
+    "tandem": "Tandem Flight",
+    "prices": "Prices",
+    "booking": "Booking",
+    "safety": "Safety",
+    "pilot": "Pilot",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Meet the Sky Over Antalya's Unique Landscape",
+    "subtitle": "Experience a safe and unforgettable paragliding adventure with our professional pilots. Discover the cliffs and the blue of the Mediterranean from the sky.",
+    "cta_whatsapp": "Get Info via WhatsApp",
+    "cta_conditions": "Check Flight Conditions",
+    "cta_map": "Go to Takeoff Area"
+  },
+  "weather": {
+    "title": "Live Flight Conditions",
+    "wind": "Wind",
+    "wind_direction": "Direction",
+    "wind_speed": "Speed",
+    "temperature": "Temperature",
+    "precipitation": "Precipitation",
+    "visibility": "Visibility",
+    "flight_status": "Flight Status",
+    "last_update": "Last Update",
+    "status_good": "Good for Flying",
+    "status_caution": "Fly with Caution",
+    "status_bad": "Not Suitable for Flying",
+    "disclaimer": "Values are measured instantly, wind condition at takeoff is the determining factor.",
+    "unavailable": "Data unavailable"
+  },
+  "booking": {
+    "title": "Booking Request",
+    "subtitle": "Reserve your spot for a flight now. Our team will contact you as soon as possible.",
+    "full_name": "Full Name",
+    "whatsapp_number": "WhatsApp Number",
+    "person_count": "Number of People",
+    "preferred_date": "Preferred Date",
+    "alternative_date": "Alternative Date",
+    "preferred_time": "Preferred Time",
+    "weight": "Weight (kg)",
+    "height": "Height (cm)",
+    "accommodation": "Accommodation Area",
+    "special_note": "Special Note",
+    "photo_video": "I want Photo and Video",
+    "submit": "Send Booking Request",
+    "summary_title": "Request Received",
+    "summary_message": "Your request has been successfully created. You can contact us via WhatsApp.",
+    "send_whatsapp": "Go to WhatsApp",
+    "validation_required": "This field is required",
+    "validation_phone": "Please enter a valid phone number",
+    "validation_date": "Please select a valid date"
+  },
+  "pilot": {
+    "title": "Meet Our Pilot",
+    "subtitle": "You are safe in the sky with thousands of hours of flight experience.",
+    "level": "T5 Tandem Pilot",
+    "tandem_qualification": "Commercial Tandem Certificate",
+    "certifications": "Certifications",
+    "education": "Education",
+    "experience": "Experience",
+    "federation": "THA Approved",
+    "view_certificate": "View Certificate"
+  },
+  "gallery": {
+    "title": "Moments from Our Flights",
+    "subtitle": "Check out our exciting moments in the sky.",
+    "categories": {
+      "all": "All",
+      "flight": "Flight",
+      "takeoff": "Takeoff",
+      "aerial": "Aerial Views",
+      "mediterranean": "Mediterranean",
+      "sunset": "Sunset",
+      "customers": "Our Guests"
+    }
+  },
+  "how_it_works": {
+    "title": "How Does It Work?",
+    "steps": [
+      {
+        "title": "Meeting",
+        "description": "We meet at the takeoff area or designated meeting point."
+      },
+      {
+        "title": "Preparation",
+        "description": "Gearing up and putting on safety equipment."
+      },
+      {
+        "title": "Briefing",
+        "description": "Explanation of rules during takeoff and flight."
+      },
+      {
+        "title": "Takeoff",
+        "description": "Taking a few steps and lifting off with our pilot."
+      },
+      {
+        "title": "Flight",
+        "description": "Gliding over the cliffs and the sea, enjoying the view."
+      },
+      {
+        "title": "In-Air Photography",
+        "description": "Photo and video recording of the best moments with a GoPro."
+      },
+      {
+        "title": "Acrobatics (Optional)",
+        "description": "Exciting maneuvers for guests who wish to try."
+      },
+      {
+        "title": "Landing",
+        "description": "Touching down softly and safely in the landing area."
+      },
+      {
+        "title": "Media Delivery",
+        "description": "Instant transfer of flight photos and videos to your phone."
+      }
+    ]
+  },
+  "why_us": {
+    "title": "Why Choose Us?",
+    "items": [
+      "T5 Level Certified Pilots",
+      "Highest Safety Standards",
+      "Top Quality Flight Equipment",
+      "Modern and Well-Maintained Gear",
+      "Antalya's Best Takeoff Point",
+      "High Resolution 4K Recording",
+      "Flexible Flight Hours",
+      "Customer Satisfaction Guarantee"
+    ]
+  },
+  "safety": {
+    "title": "Safety First",
+    "subtitle": "All our flights are conducted in accordance with international civil aviation standards.",
+    "disclaimer": "Those with heart conditions, asthma, pregnancy, or fear of heights must inform us before the flight."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "q": "Do I need experience to paraglide?",
+        "a": "No, you don't need any experience. Our expert pilots will manage the entire process, you just enjoy the view."
+      },
+      {
+        "q": "Is there a weight or height limit?",
+        "a": "There is generally a weight limit of up to 110 kg for flights. However, this limit may change depending on wind conditions. If you are over 105 kg, please inform us before booking."
+      },
+      {
+        "q": "What should I wear?",
+        "a": "You should prefer comfortable clothes (sneakers, t-shirt/sweatshirt, and a windbreaker depending on the season) and sunglasses. Flights cannot be made with slippers, sandals, or high heels."
+      },
+      {
+        "q": "How long does the flight take?",
+        "a": "Our flight time usually varies between 15 and 25 minutes depending on weather and thermal conditions."
+      },
+      {
+        "q": "Can I shoot with my phone?",
+        "a": "For safety reasons, you are not allowed to shoot with your personal phones or cameras. Our pilots shoot high-quality footage with professional action cameras."
+      },
+      {
+        "q": "Who cannot fly?",
+        "a": "Pregnant women, people with heart conditions, blood pressure or epilepsy, and those under the influence of alcohol are not suitable to fly."
+      },
+      {
+        "q": "What is the age limit?",
+        "a": "Anyone aged 4 and above can fly with family consent and permission. We have no upper age limit, any individual in good physical condition can fly."
+      },
+      {
+        "q": "What happens if weather conditions are not suitable?",
+        "a": "Flight safety is paramount. If wind or weather conditions are not suitable for flying, your reservation may be cancelled or postponed to another available day/time."
+      },
+      {
+        "q": "How far in advance should reservations be made?",
+        "a": "We recommend that you make a reservation at least 2-3 days in advance, especially since it is busy during the summer months."
+      },
+      {
+        "q": "What should I do during takeoff?",
+        "a": "You just need to walk or run quickly for a few steps with your pilot's command. You must never jump or sit."
+      },
+      {
+        "q": "Will I get airsick?",
+        "a": "It is a very rare condition. However, if you have a motion sickness problem, you can inform your pilot before the flight that you do not want the optionally offered acrobatic moves."
+      }
+    ]
+  },
+  "map": {
+    "title": "Contact Us",
+    "takeoff_point": "Takeoff Point",
+    "get_directions": "Get Directions"
+  },
+  "footer": {
+    "description": "Antalya's most prestigious paragliding experience. Feel the freedom in the sky accompanied by the unique view of the cliffs and the Mediterranean.",
+    "quick_links": "Quick Links",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "kvkk": "KVKK Clarification Text",
+    "cookies": "Cookie Policy",
+    "consent": "Flight Agreement",
+    "copyright": "All rights reserved."
+  },
+  "meta": {
+    "home_title": "Antalya Paragliding | Safe Tandem Flight",
+    "home_description": "Safe tandem paragliding with expert pilots at Antalya Varyant. Book now for an unforgettable flight experience with unique Mediterranean and cliff views."
+  },
+  "common": {
+    "read_more": "Read More",
+    "back": "Go Back",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "close": "Close",
+    "open_whatsapp": "Open WhatsApp",
+    "book_now": "Book Now"
+  },
+  "pricing": {
+    "title": "Flight Prices",
+    "subtitle": "Transparent pricing for an unforgettable experience",
+    "contact_for_price": "Contact for Current Price",
+    "season_2026": "2026 Season",
+    "whatsapp_price": "Get Price via WhatsApp"
+  }
+}
