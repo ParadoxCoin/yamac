@@ -3,8 +3,25 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Compass } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { siteConfig } from '@/lib/config/site';
+
+function ParagliderLogoIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      {/* Paraglider Canopy Wing */}
+      <path d="M2 9C2 4.5 6.5 2 12 2C17.5 2 22 4.5 22 9C17 7.5 14 7.5 12 7.5C10 7.5 7 7.5 2 9Z" fill="#4A9FD9" fillOpacity="0.2" />
+      <path d="M2 9C2 4.5 6.5 2 12 2C17.5 2 22 4.5 22 9" />
+      {/* Lines to Pilot */}
+      <line x1="2" y1="9" x2="11" y2="18" />
+      <line x1="7" y1="7.8" x2="11.5" y2="18" />
+      <line x1="17" y1="7.8" x2="12.5" y2="18" />
+      <line x1="22" y1="9" x2="13" y2="18" />
+      {/* Pilot Harness */}
+      <circle cx="12" cy="19.5" r="1.5" fill="#D4A96A" />
+    </svg>
+  );
+}
 
 export default function Header({ locale }: { locale?: string; dict?: any }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,24 +50,24 @@ export default function Header({ locale }: { locale?: string; dict?: any }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-    isTr
-      ? "Merhaba, Antalya Varyant'ta yamaç paraşütü uçuşu hakkında bilgi almak istiyorum."
-      : "Hello, I would like to get information about tandem paragliding in Antalya."
-  )}`;
+  const whatsappMessage = isTr
+    ? `Merhaba, Antalya Varyant'ta yamaç paraşütü yapmak istiyorum.\n\nAd Soyad:\nKişi Sayısı:\nTercih Edilen Tarih:\nTercih Edilen Saat:\nYaklaşık Kilo:\nKonaklama Bölgesi:\n\nUçuş koşulları ve uygunluk hakkında bilgi almak istiyorum.`
+    : `Hello, I would like to book tandem paragliding in Antalya.\n\nFull Name:\nNumber of People:\nPreferred Date:\nPreferred Time:\nApproximate Weight:\nAccommodation Area:\n\nI would like information about flight conditions and availability.`;
+
+  const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#0B1D3A]/95 backdrop-blur-md shadow-lg py-3' : 'bg-[#0B1D3A]/80 backdrop-blur-sm py-4'
+        scrolled ? 'bg-[#0B1D3A]/95 backdrop-blur-md shadow-lg py-3' : 'bg-[#0B1D3A]/85 backdrop-blur-sm py-4'
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between">
-          <Link href={`/${currentLocale}`} className="flex items-center space-x-2 text-[#F8F9FA] z-50">
-            <Compass className="w-7 h-7 text-[#4A9FD9]" />
-            <span className="font-[family-name:var(--font-heading)] text-xl md:text-2xl font-bold tracking-wider">
-              ANTALYA<span className="text-[#4A9FD9]">PARAŞÜT</span>
+          <Link href={`/${currentLocale}`} className="flex items-center space-x-2.5 text-[#F8F9FA] z-50">
+            <ParagliderLogoIcon className="w-8 h-8 text-[#4A9FD9]" />
+            <span className="font-[family-name:var(--font-heading)] text-lg md:text-2xl font-extrabold tracking-wider">
+              ANTALYA<span className="text-[#4A9FD9]"> YAMAÇ PARAŞÜTÜ</span>
             </span>
           </Link>
 
@@ -89,7 +106,7 @@ export default function Header({ locale }: { locale?: string; dict?: any }) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#25D366] hover:bg-[#1da851] text-white px-5 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105 shadow-lg flex items-center gap-2"
+                className="bg-[#25D366] hover:bg-[#1da851] text-white px-5 py-2.5 rounded-full text-sm font-bold transition-all transform hover:scale-105 shadow-lg flex items-center gap-2"
               >
                 <span>WhatsApp</span>
               </a>

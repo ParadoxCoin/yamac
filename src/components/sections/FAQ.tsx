@@ -1,123 +1,125 @@
 'use client';
 
 import { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
+import { siteConfig } from '@/lib/config/site';
 
-const FAQ_DATA = [
+const FAQ_ITEMS = [
   {
-    q: 'Yamaç paraşütü yapmak için yaş sınırı var mı?',
-    a: 'Uçuşlarımız için minimum yaş 4, maksimum yaş sınırı bulunmamaktadır. 18 yaş altı misafirlerimizin ebeveyn izni gereklidir.'
+    question: 'Kaç yaşından itibaren yamaç paraşütü yapılabilir?',
+    answer: '5 yaşından 90 yaşına kadar sağlıklı olan herkes tandem yamaç paraşütü yapabilir. Herhangi bir eğitim veya ön tecrübe gerektirmez. Pilotunuz kalkışta ve uçuş süresince sizi bilgilendirecektir.',
   },
   {
-    q: 'Kilo sınırı nedir?',
-    a: 'Güvenli bir uçuş için minimum 20 kg, maksimum 110 kg ağırlık sınırımız bulunmaktadır.'
+    question: 'Kilo sınırı (üst kilo limiti) nedir?',
+    answer: 'Standart üst kilo limiti 100 kg\'dır. Rüzgar koşulları ve hava durumu elverdiğinde pilot değerlendirmesiyle 105 kg\'a kadar yolcu kabul edilebilmektedir.',
   },
   {
-    q: 'Daha önce deneyimim olması gerekiyor mu?',
-    a: 'Hayır, tandem (ikili) uçuşlarda tüm kontrol profesyonel pilotumuzdadır. Sizin sadece pilotun kalkış ve iniş sırasındaki basit komutlarına (birkaç adım koşmak gibi) uymanız yeterlidir.'
+    question: 'Uçuş sonrası nereye iniş yapılıyor?',
+    answer: 'Uçuş günü rüzgarın şiddetine ve yönüne bağlı olarak ya kalkış yaptığımız Konyaaltı Varyant Seyir Terası alanına ya da Konyaaltı Plajı\'na son derece konforlu ve yumuşak bir iniş gerçekleştirilir.',
   },
   {
-    q: 'Ne giymeliyim?',
-    a: 'Mevsime uygun, rahat spor kıyafetler ve spor ayakkabı giymenizi öneririz. Güneş gözlüğü takmanız rüzgardan korunmak için faydalı olacaktır.'
+    question: 'Fotoğraf ve video çekimi paket fiyatına dahil mi?',
+    answer: 'Evet! Profesyonel aksiyon kamerası ile uçuş boyunca çekilen fotoğraf ve 4K video kayıtları standart uçuş paketimize dahildir. Güncel paket fiyatı ve rezervasyon için lütfen WhatsApp veya telefon ile bizimle iletişime geçiniz.',
   },
   {
-    q: 'Uçuş ne kadar sürüyor?',
-    a: 'Hava koşullarına bağlı olarak uçuş süremiz ortalama 15-20 dakika sürmektedir. Ancak tüm aktivite (hazırlık, ulaşım vs.) için 1 saat ayırmanızı öneririz.'
+    question: 'Uçuşlar günün hangi saatlerinde yapılmaktadır?',
+    answer: 'Meteorolojik uygunluk ve termik rüzgar şartlarına bağlı olarak her gün 12:00 ile 18:00 saatleri arasında uçuşlarımız gerçekleştirilmektedir.',
   },
   {
-    q: 'Fotoğraf ve video çekimi fiyata dahil mi?',
-    a: 'Fotoğraf ve video çekimleri opsiyonel olup fiyata dahil değildir. Pilotlarımız aksiyon kameraları ile yüksek çözünürlüklü çekimler yapmaktadır, uçuş sonrası inceleyip satın alabilirsiniz.'
+    question: 'Uçuşta ne giymeliyim? Güneş gözlüğü gerekli mi?',
+    answer: 'Spor ayakkabı (sneaker) ve mevsime uygun konforlu kıyafetler giymeniz önerilir (topuklu ayakkabı ve terlikle uçuş yapılmaz). Güneş gözlüğü sadece rüzgardan korunmak için değil, gökyüzündeki fotoğraflarda ve videolarda gözlerinizin kısık çıkmaması için önemle tavsiye edilir.',
   },
   {
-    q: 'Kendi telefonumla çekim yapabilir miyim?',
-    a: 'Güvenlik nedenleriyle uçuş sırasında kişisel cihazların kullanımına izin verilmemektedir. Düşme riski uçuş güvenliğini tehlikeye atabilir.'
+    question: 'Sizi uçuran pilot kimdir ve ne kadar tecrübelidir?',
+    answer: 'Pilotumuz Mehmet BAYRAKTAR, 23 yıllık mesleki tecrübeye ve 10.000\'den fazla başarılı tandem uçuş sayısına sahiptir. Deneyimli Ölüdeniz pilotumuz; T.C. Gençlik ve Spor Bakanlığı, Türkiye Hava Sporları Federasyonu (THSF) ve Uluslararası Havacılık Federasyonu (FAI) onaylı T2 Commercial Tandem Pilot (Lisans No: 1019) sertifikasına sahiptir.',
   },
   {
-    q: 'Yükseklik korkum var, uçabilir miyim?',
-    a: 'Yamaç paraşütünde yükseklik korkusu (akrofobi) genellikle tetiklenmez çünkü ayaklarınızın altında boşluk hissini veren görsel referanslar farklıdır. Birçok misafirimiz uçuş başladıktan saniyeler sonra korkularının geçtiğini belirtmiştir.'
+    question: 'Paraşüt ve uçuş ekipmanları güvenli mi?',
+    answer: 'Uçuşlarımızda kullanılan tandem kanatlar, kuşamlar ve kasklar uluslararası test raporlu (EN/LTF sertifikalı) olup periyodik bakımları titizlikle yapılmaktadır. Her uçuş takımımızda zorunlu otomatik yedek paraşüt sistemi bulunur.',
   },
-  {
-    q: 'Hangi saatlerde uçuş yapılıyor?',
-    a: 'Hava şartlarının uygun olduğu günlerde, sabah 09:00 ile gün batımına kadar her saat başı uçuşlarımız gerçekleştirilmektedir.'
-  },
-  {
-    q: 'Kalkış ve iniş neresi?',
-    a: 'Kalkışımızı Varyant mevkiindeki falezler üzerinden yapıyor, inişimizi ise Konyaaltı sahiline veya duruma göre kalkış alanına yakın bir noktaya gerçekleştiriyoruz.'
-  },
-  {
-    q: 'Hava şartları uygun olmazsa ne oluyor?',
-    a: 'Güvenlik önceliğimizdir. Meteorolojik şartlar uçuşa elverişli değilse, uçuşunuz iptal edilir veya size uygun başka bir tarih/saate ertelenir.'
-  }
 ];
 
-export default function FAQ({ locale, dict }: { locale?: string; dict?: any }) {
+export default function FAQ({ locale }: { locale?: string; dict?: any }) {
+  const isTr = locale !== 'en';
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // Generate JSON-LD for FAQPage
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: FAQ_DATA.map((faq) => ({
-      '@type': 'Question',
-      name: faq.q,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.a,
-      },
-    })),
-  };
+  const whatsappMessage = isTr
+    ? `Merhaba, Antalya Varyant'ta yamaç paraşütü yapmayı düşünüyor ancak soruma cevap bulamadım. Bilgi almak istiyorum.`
+    : `Hello, I have a question about paragliding in Antalya.`;
+
+  const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
-    <section className="py-20 bg-[#FAFBFC]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <section id="faq" className="py-20 bg-[#FAFBFC]">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#1A1A2E] mb-4">
-            Sıkça Sorulan Sorular
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-[#4A9FD9] text-sm font-semibold tracking-wider uppercase mb-2 block flex items-center justify-center gap-1.5">
+            <HelpCircle className="w-4 h-4" />
+            {isTr ? 'Merak Edilenler' : 'FAQ'}
+          </span>
+          <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-5xl font-bold text-[#0B1D3A] mb-4">
+            {isTr ? 'Sık Sorulan Sorular' : 'Frequently Asked Questions'}
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Uçuş deneyimi hakkında merak ettikleriniz.
+          <p className="text-gray-600 text-base md:text-lg">
+            {isTr
+              ? "Antalya Varyant yamaç paraşütü uçuşları, yaş/kilo limitleri, emniyet ve rezervasyon hakkında en çok sorulan sorular."
+              : "Everything you need to know about tandem paragliding in Antalya."}
           </p>
         </div>
 
         <div className="max-w-3xl mx-auto space-y-4">
-          {FAQ_DATA.map((faq, index) => {
+          {FAQ_ITEMS.map((item, index) => {
             const isOpen = openIndex === index;
             return (
-              <div 
-                key={index} 
-                className={`border border-gray-200 rounded-2xl bg-white overflow-hidden transition-all duration-300 ${isOpen ? 'shadow-md' : 'hover:shadow-sm'}`}
+              <div
+                key={index}
+                className="bg-white rounded-2xl border border-gray-200 overflow-hidden transition-all shadow-sm"
               >
                 <button
-                  className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
                   onClick={() => toggleAccordion(index)}
-                  aria-expanded={isOpen}
+                  className="w-full p-6 text-left font-bold text-[#0B1D3A] flex justify-between items-center text-base md:text-lg hover:text-[#4A9FD9] transition-colors"
                 >
-                  <span className="font-semibold text-[#1A1A2E] pr-4">{faq.q}</span>
-                  <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isOpen ? 'bg-[#0B1D3A] text-white' : 'bg-gray-100 text-gray-500'}`}>
-                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
-                  </div>
+                  <span className="pr-4">{item.question}</span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-[#4A9FD9] transition-transform duration-300 flex-shrink-0 ${
+                      isOpen ? 'rotate-180' : ''
+                    }`}
+                  />
                 </button>
-                
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <div className="px-6 pb-5 pt-0 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
-                    {faq.a}
+
+                {isOpen && (
+                  <div className="px-6 pb-6 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100 pt-4">
+                    {item.answer}
                   </div>
-                </div>
+                )}
               </div>
             );
           })}
+        </div>
+
+        {/* Still have questions? */}
+        <div className="mt-12 text-center bg-white rounded-2xl p-8 max-w-xl mx-auto border border-gray-200 shadow-sm">
+          <h3 className="font-bold text-lg text-[#0B1D3A] mb-2">
+            {isTr ? 'Başka Bir Sorunuz mu Var?' : 'Have More Questions?'}
+          </h3>
+          <p className="text-sm text-gray-600 mb-6">
+            {isTr
+              ? "Aklınıza takılan tüm konular ve rezervasyon için doğrudan pilotumuzla iletişime geçebilirsiniz."
+              : "Contact pilot Mehmet Bayraktar directly via WhatsApp for any questions."}
+          </p>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#1da851] text-white font-bold rounded-xl text-sm transition-colors shadow-md"
+          >
+            <MessageCircle className="w-5 h-5 fill-current" />
+            {isTr ? "WhatsApp'tan Soru Sor" : 'Ask via WhatsApp'}
+          </a>
         </div>
       </div>
     </section>
