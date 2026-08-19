@@ -2,9 +2,16 @@ import { MessageCircle, Phone } from 'lucide-react';
 import { siteConfig } from '@/lib/config/site';
 import { generateQuickWhatsAppUrl } from '@/lib/services/whatsapp';
 
+const translations = {
+  tr: { title: 'Randevunuzu Hemen Oluşturun', sub: 'WhatsApp üzerinden hızlı ve kolay randevu talebi oluşturabilir, uçuş saatleri ve uygunluk hakkında bilgi alabilirsiniz.', btn: "WhatsApp'tan Randevu Al" },
+  en: { title: 'Book Your Flight Today', sub: 'Create a fast booking request via WhatsApp and check real-time flight availability.', btn: 'Book via WhatsApp' },
+  ru: { title: 'Забронируйте прямо сейчас', sub: 'Быстро создайте заявку на бронирование через WhatsApp и узнайте о доступности мест в реальном времени.', btn: 'Забронировать в WhatsApp' },
+  ar: { title: 'احجز رحلتك اليوم', sub: 'أرسل طلب الحجز بسرعة عبر الواتساب واستفسر عن المواعيد المتاحة.', btn: 'احجز عبر الواتساب' },
+};
+
 export default function WhatsAppCTA({ locale }: { locale?: string; dict?: any }) {
   const currentLocale = locale || 'tr';
-  const isTr = currentLocale !== 'en';
+  const t = translations[currentLocale as keyof typeof translations] || translations.tr;
   const whatsappUrl = generateQuickWhatsAppUrl(currentLocale);
 
   return (
@@ -20,12 +27,10 @@ export default function WhatsAppCTA({ locale }: { locale?: string; dict?: any })
           
           <div className="text-center md:text-left mb-8 md:mb-0 md:mr-8">
             <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl font-bold text-[#F8F9FA] mb-4">
-              {isTr ? 'Randevunuzu Hemen Oluşturun' : 'Book Your Flight Today'}
+              {t.title}
             </h2>
             <p className="text-gray-300 text-lg max-w-xl">
-              {isTr
-                ? "WhatsApp üzerinden hızlı ve kolay randevu talebi oluşturabilir, uçuş saatleri ve uygunluk hakkında bilgi alabilirsiniz."
-                : "Create a fast booking request via WhatsApp and check real-time availability."}
+              {t.sub}
             </p>
           </div>
 
@@ -37,7 +42,7 @@ export default function WhatsAppCTA({ locale }: { locale?: string; dict?: any })
               className="flex items-center justify-center space-x-3 bg-[#25D366] hover:bg-[#1da851] text-white py-4 px-8 rounded-full font-extrabold text-base transition-transform hover:scale-105 shadow-xl shadow-green-600/30"
             >
               <MessageCircle className="w-6 h-6 fill-current" />
-              <span>{isTr ? "WhatsApp'tan Randevu Al" : 'Book via WhatsApp'}</span>
+              <span>{t.btn}</span>
             </a>
             
             <a 
