@@ -16,16 +16,17 @@ export interface BookingData {
 
 export function generateWhatsAppUrl(data?: BookingData, locale: string = 'tr'): string {
   const phone = siteConfig.whatsappNumber.replace(/[^0-9]/g, '');
+  const isTr = locale !== 'en';
   
   if (!data) {
-    const defaultMessage = locale === 'tr'
+    const defaultMessage = isTr
       ? `Merhaba, Antalya Varyant'ta yamaç paraşütü yapmak istiyorum.\n\nAd Soyad:\nKişi Sayısı:\nTercih Edilen Tarih:\nTercih Edilen Saat:\nYaklaşık Kilo:\nKonaklama Bölgesi:\n\nUçuş koşulları ve uygunluk hakkında bilgi almak istiyorum.`
-      : `Hello, I would like to go paragliding at Antalya Varyant.\n\nFull Name:\nNumber of People:\nPreferred Date:\nPreferred Time:\nApproximate Weight:\nAccommodation Area:\n\nI would like to get information about flight conditions and availability.`;
+      : `Hello, I would like to book tandem paragliding in Antalya.\n\nFull Name:\nNumber of People:\nPreferred Date:\nPreferred Time:\nApproximate Weight:\nAccommodation Area:\n\nI would like information about flight conditions and availability.`;
     
     return `https://wa.me/${phone}?text=${encodeURIComponent(defaultMessage)}`;
   }
 
-  const message = locale === 'tr'
+  const message = isTr
     ? `Merhaba, yamaç paraşütü randevu talebi göndermek istiyorum.\n\n` +
       `Ad Soyad: ${data.fullName}\n` +
       `WhatsApp: ${data.whatsappNumber}\n` +

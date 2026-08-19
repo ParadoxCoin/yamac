@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
-import { siteConfig } from '@/lib/config/site';
+import { generateQuickWhatsAppUrl } from '@/lib/services/whatsapp';
 
 const FAQ_ITEMS = [
   {
@@ -40,18 +40,15 @@ const FAQ_ITEMS = [
 ];
 
 export default function FAQ({ locale }: { locale?: string; dict?: any }) {
-  const isTr = locale !== 'en';
+  const currentLocale = locale || 'tr';
+  const isTr = currentLocale !== 'en';
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const whatsappMessage = isTr
-    ? `Merhaba, Antalya Varyant'ta yamaç paraşütü yapmayı düşünüyor ancak soruma cevap bulamadım. Bilgi almak istiyorum.`
-    : `Hello, I have a question about paragliding in Antalya.`;
-
-  const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = generateQuickWhatsAppUrl(currentLocale);
 
   return (
     <section id="faq" className="py-20 bg-[#FAFBFC]">
@@ -104,21 +101,21 @@ export default function FAQ({ locale }: { locale?: string; dict?: any }) {
         {/* Still have questions? */}
         <div className="mt-12 text-center bg-white rounded-2xl p-8 max-w-xl mx-auto border border-gray-200 shadow-sm">
           <h3 className="font-bold text-lg text-[#0B1D3A] mb-2">
-            {isTr ? 'Başka Bir Sorunuz mu Var?' : 'Have More Questions?'}
+            {isTr ? 'Aklınıza Takılan Bir Soru mu Var?' : 'Have More Questions?'}
           </h3>
           <p className="text-sm text-gray-600 mb-6">
             {isTr
-              ? "Aklınıza takılan tüm konular ve rezervasyon için doğrudan pilotumuzla iletişime geçebilirsiniz."
+              ? "Aklınıza takılan tüm sorularınız ve randevu talepleriniz için doğrudan pilotumuzla WhatsApp üzerinden iletişime geçebilirsiniz."
               : "Contact pilot Mehmet Bayraktar directly via WhatsApp for any questions."}
           </p>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#1da851] text-white font-bold rounded-xl text-sm transition-colors shadow-md"
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#1da851] text-white font-extrabold rounded-xl text-sm transition-colors shadow-md"
           >
             <MessageCircle className="w-5 h-5 fill-current" />
-            {isTr ? "WhatsApp'tan Soru Sor" : 'Ask via WhatsApp'}
+            {isTr ? "WhatsApp'tan Soru Sor & Randevu Al" : 'Ask & Book via WhatsApp'}
           </a>
         </div>
       </div>

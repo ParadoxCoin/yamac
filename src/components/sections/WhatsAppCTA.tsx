@@ -1,6 +1,12 @@
 import { MessageCircle, Phone } from 'lucide-react';
+import { siteConfig } from '@/lib/config/site';
+import { generateQuickWhatsAppUrl } from '@/lib/services/whatsapp';
 
-export default function WhatsAppCTA({ locale, dict }: { locale?: string; dict?: any }) {
+export default function WhatsAppCTA({ locale }: { locale?: string; dict?: any }) {
+  const currentLocale = locale || 'tr';
+  const isTr = currentLocale !== 'en';
+  const whatsappUrl = generateQuickWhatsAppUrl(currentLocale);
+
   return (
     <section className="bg-[#0B1D3A] py-16 relative overflow-hidden">
       {/* Decorative background pattern */}
@@ -13,31 +19,33 @@ export default function WhatsAppCTA({ locale, dict }: { locale?: string; dict?: 
         <div className="flex flex-col md:flex-row items-center justify-between bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12">
           
           <div className="text-center md:text-left mb-8 md:mb-0 md:mr-8">
-            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#F8F9FA] mb-4">
-              Randevunuzu Hemen Oluşturun
+            <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl font-bold text-[#F8F9FA] mb-4">
+              {isTr ? 'Randevunuzu Hemen Oluşturun' : 'Book Your Flight Today'}
             </h2>
             <p className="text-gray-300 text-lg max-w-xl">
-              WhatsApp üzerinden hızlı ve kolay randevu talebi oluşturabilir, uçuş saatleri hakkında bilgi alabilirsiniz.
+              {isTr
+                ? "WhatsApp üzerinden hızlı ve kolay randevu talebi oluşturabilir, uçuş saatleri ve uygunluk hakkında bilgi alabilirsiniz."
+                : "Create a fast booking request via WhatsApp and check real-time availability."}
             </p>
           </div>
 
           <div className="flex flex-col space-y-4 w-full md:w-auto">
             <a
-              href="https://wa.me/905555555555?text=Merhaba,%20yamaç%20paraşütü%20randevusu%20almak%20istiyorum."
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center space-x-3 bg-[#22C55E] hover:bg-[#1ea951] text-white py-4 px-8 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-lg shadow-green-500/20"
+              className="flex items-center justify-center space-x-3 bg-[#25D366] hover:bg-[#1da851] text-white py-4 px-8 rounded-full font-extrabold text-base transition-transform hover:scale-105 shadow-xl shadow-green-600/30"
             >
-              <MessageCircle className="w-6 h-6" />
-              <span>WhatsApp'tan Yazın</span>
+              <MessageCircle className="w-6 h-6 fill-current" />
+              <span>{isTr ? "WhatsApp'tan Randevu Al" : 'Book via WhatsApp'}</span>
             </a>
             
             <a 
-              href="tel:+905555555555"
-              className="flex items-center justify-center space-x-2 text-gray-300 hover:text-white transition-colors py-2"
+              href={`tel:${siteConfig.phone.replace(/[^0-9]/g, '')}`}
+              className="flex items-center justify-center space-x-2 text-gray-200 hover:text-white transition-colors py-2 text-sm font-semibold"
             >
-              <Phone className="w-5 h-5" />
-              <span>[ADMIN TARAFINDAN DOLDURULACAK]</span>
+              <Phone className="w-5 h-5 text-[#4A9FD9]" />
+              <span>{siteConfig.phone} (Mehmet BAYRAKTAR)</span>
             </a>
           </div>
 
