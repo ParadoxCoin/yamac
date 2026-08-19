@@ -1,80 +1,112 @@
 import Image from 'next/image';
-import { Award, FileCheck, CheckCircle2, Star } from 'lucide-react';
+import { Award, CheckCircle2, Star, ShieldCheck, Trophy, ExternalLink } from 'lucide-react';
+import { siteConfig } from '@/lib/config/site';
 
-export default function PilotProfile({ locale, dict }: { locale?: string; dict?: any }) {
+export default function PilotProfile({ locale }: { locale?: string; dict?: any }) {
+  const isTr = locale !== 'en';
+
   return (
-    <section className="py-20 bg-[#0B1D3A] text-[#F8F9FA]">
+    <section id="pilot" className="py-20 bg-[#0B1D3A] text-[#F8F9FA]">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="max-w-4xl mx-auto bg-[#122B5C] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
-          
-          {/* Photo Column */}
-          <div className="md:w-2/5 p-8 flex flex-col items-center justify-center bg-black/20">
-            <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[#D4A96A] mb-6 shadow-xl">
-              {/* Fallback avatar if no image */}
-              <div className="absolute inset-0 bg-gray-700 flex items-center justify-center">
-                <span className="text-gray-400 text-sm">Fotoğraf</span>
-              </div>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-[#4A9FD9] text-sm font-semibold tracking-wider uppercase mb-2 block">
+            {isTr ? 'Gökyüzünde Güvenli Gökyüzü ellerdesiniz' : 'In Safe Hands in the Sky'}
+          </span>
+          <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-5xl font-bold mb-4">
+            {isTr ? 'Sizi Gökyüzünde Kim Uçuruyor?' : 'Who Flies You in the Sky?'}
+          </h2>
+          <p className="text-gray-300 text-lg">
+            {isTr
+              ? "23 yıllık deneyim ve 10.000'den fazla tandem uçuş tecrübesi ile Antalya Varyant ve Falezler üzerinde emniyetli ve unutulmaz bir deneyim."
+              : "Safe and unforgettable flights over Antalya Varyant and Falezler with 23 years of experience and 10,000+ flights."}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Pilot Photo */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative h-[480px] w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-[#122B5C]">
               <Image
-                src="/images/pilot/pilot-profile.jpg"
-                alt="Pilot Profil"
+                src="/images/pilot/mehmet-bayraktar.jpg"
+                alt="Mehmet Bayraktar - Tandem Yamaç Paraşütü Pilotu"
                 fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover object-top"
+                priority
               />
             </div>
-            <h3 className="font-playfair text-2xl font-bold text-center">[ADMIN TARAFINDAN DOLDURULACAK]</h3>
-            <p className="text-[#4A9FD9] font-medium text-center mt-1">T2 Ticari Tandem Pilotu</p>
             
-            <div className="flex items-center space-x-1 mt-3 text-[#D4A96A]">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-current" />
-              ))}
+            {/* Experience Badge */}
+            <div className="absolute -bottom-6 -right-2 md:right-4 bg-[#D4A96A] text-[#0B1D3A] p-4 rounded-2xl shadow-xl flex items-center gap-3 border-2 border-white">
+              <Trophy className="w-8 h-8 flex-shrink-0" />
+              <div>
+                <div className="font-extrabold text-base">23 Yıllık Deneyim</div>
+                <div className="text-xs font-semibold">10.000+ Tandem Uçuş</div>
+              </div>
             </div>
           </div>
 
-          {/* Info Column */}
-          <div className="md:w-3/5 p-8 md:p-10">
-            <h4 className="text-xl font-semibold mb-6 border-b border-white/10 pb-4 flex items-center">
-              <Award className="w-5 h-5 mr-3 text-[#D4A96A]" />
-              Sertifikalar ve Deneyim
-            </h4>
-            
-            <ul className="space-y-4 mb-8">
-              {[
-                'THK (Türk Hava Kurumu) T2 Ticari Tandem Sertifikası',
-                'FAI (Uluslararası Havacılık Federasyonu) Lisansı',
-                '[X]+ Yıllık Uçuş Tecrübesi',
-                '[X.XXX]+ Başarılı Tandem Uçuşu',
-                'İlkyardım ve Acil Durum Müdahale Eğitimi'
-              ].map((item, i) => (
-                <li key={i} className="flex items-start space-x-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#22C55E] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">{item}</span>
-                </li>
-              ))}
-            </ul>
+          {/* Pilot Info Details */}
+          <div className="lg:col-span-7 space-y-6">
+            <div>
+              <div className="flex items-center gap-2 text-[#4A9FD9] font-medium text-sm mb-1">
+                <Star className="w-4 h-4 fill-current text-[#D4A96A]" /> {siteConfig.pilot.origin}
+              </div>
+              <h3 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl font-bold text-white mb-2">
+                {siteConfig.pilot.name}
+              </h3>
+              <p className="text-[#D4A96A] font-semibold text-lg">
+                {siteConfig.pilot.certification}
+              </p>
+            </div>
 
-            <div className="bg-[#0B1D3A] rounded-xl p-4 flex items-center justify-between border border-white/5">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-[#122B5C] rounded-lg flex items-center justify-center">
-                  <FileCheck className="w-5 h-5 text-[#4A9FD9]" />
-                </div>
+            <p className="text-gray-300 leading-relaxed text-base">
+              {isTr
+                ? "T.C. Gençlik ve Spor Bakanlığı, Türkiye Hava Sporları Federasyonu (THSF) ve Uluslararası Havacılık Federasyonu (FAI) tarafından verilen resmi T2 Commercial Tandem Pilot (Ticari Tandem Pilotu) Lisansı (Lisans No: 1019) ile Antalya Varyant Seyir Terası'ndan uluslararası standartlarda emniyetli tandem uçuşlar gerçekleştirilmektedir."
+                : "Official T2 Commercial Tandem Pilot license (No: 1019) issued by the Turkish Air Sports Federation (THSF) and FAI. Over 23 years of professional experience flying tandem paragliders."}
+            </p>
+
+            {/* Qualifications Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+              <div className="flex items-start gap-3 bg-[#122B5C] p-4 rounded-2xl border border-gray-700">
+                <ShieldCheck className="w-6 h-6 text-[#4A9FD9] flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-sm text-gray-400">Lisans Numarası</p>
-                  <p className="font-mono font-medium tracking-wider">T2-***<span className="opacity-50">****</span></p>
+                  <h4 className="font-bold text-white text-sm">Resmi THSF & FAI Sertifikası</h4>
+                  <p className="text-xs text-gray-300">T2 Ticari Tandem Pilot Yeterlilik Belgesi (No: 1019)</p>
                 </div>
               </div>
-              <a 
-                href="/sertifika.pdf" 
+
+              <div className="flex items-start gap-3 bg-[#122B5C] p-4 rounded-2xl border border-gray-700">
+                <Award className="w-6 h-6 text-[#D4A96A] flex-shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-bold text-white text-sm">Test Raporlu Ekipmanlar</h4>
+                  <p className="text-xs text-gray-300">Periyodik test ve bakımları yapılmış yedek paraşütlü takımlar</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Certificate Buttons */}
+            <div className="pt-4 flex flex-wrap gap-4 items-center">
+              <a
+                href="/images/pilot/thsf-sertifika.jpg"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-[#4A9FD9] hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#4A9FD9] hover:bg-[#3b8bc4] text-white font-bold rounded-xl transition-all shadow-lg text-sm"
               >
-                Belgeyi Görüntüle
+                <CheckCircle2 className="w-5 h-5" />
+                {isTr ? 'THSF Resmi Pilot Sertifikası' : 'Official THSF License'}
+                <ExternalLink className="w-4 h-4 ml-1" />
+              </a>
+
+              <a
+                href="/images/pilot/mehmet-bayraktar-odul.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 border border-gray-600 hover:border-gray-400 text-gray-200 rounded-xl transition-all text-sm font-semibold"
+              >
+                🏆 {isTr ? 'Ödüller & Dereceler' : 'Awards & Trophies'}
               </a>
             </div>
           </div>
-
         </div>
       </div>
     </section>

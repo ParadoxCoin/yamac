@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Plane, MapPin, Phone, Mail } from 'lucide-react';
+import { Compass, MapPin, Phone, Mail } from 'lucide-react';
+import { siteConfig } from '@/lib/config/site';
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -9,109 +10,135 @@ function InstagramIcon({ className }: { className?: string }) {
   );
 }
 
-function YoutubeIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-    </svg>
-  );
-}
+export default function Footer({ locale }: { locale?: string; dict?: any }) {
+  const currentLocale = locale || 'tr';
+  const isTr = currentLocale === 'tr';
 
-export default function Footer({ locale, dict }: { locale?: string; dict?: any }) {
   return (
-    <footer className="bg-[#0B1D3A] text-[#F8F9FA] pt-16 pb-8">
+    <footer className="bg-[#0B1D3A] text-[#F8F9FA] pt-16 pb-8 border-t border-gray-800">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand & Description */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center space-x-2 text-[#F8F9FA]">
-              <Plane className="w-8 h-8 text-[#4A9FD9]" />
-              <span className="font-playfair text-2xl font-bold tracking-wider">
+            <Link href={`/${currentLocale}`} className="flex items-center space-x-2 text-[#F8F9FA]">
+              <Compass className="w-8 h-8 text-[#4A9FD9]" />
+              <span className="font-[family-name:var(--font-heading)] text-2xl font-bold tracking-wider">
                 ANTALYA<span className="text-[#4A9FD9]">PARAŞÜT</span>
               </span>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Antalya Varyant ve Falezler üzerinde profesyonel ekibimizle güvenli ve unutulmaz tandem yamaç paraşütü deneyimi yaşayın.
+              23 yıllık deneyimli THSF/FAI sertifikalı pilotumuz Mehmet Bayraktar ile Antalya Varyant ve Falezler üzerinde emniyetli tandem uçuş deneyimi.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="#" className="text-gray-300 hover:text-[#D4A96A] transition-colors">
+              <a
+                href={siteConfig.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-[#D4A96A] transition-colors p-2 bg-[#122B5C] rounded-full"
+                aria-label="Instagram"
+              >
                 <InstagramIcon className="w-5 h-5" />
-                <span className="sr-only">Instagram</span>
-              </a>
-              <a href="#" className="text-gray-300 hover:text-[#D4A96A] transition-colors">
-                <YoutubeIcon className="w-5 h-5" />
-                <span className="sr-only">YouTube</span>
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-playfair text-lg font-semibold mb-4 text-[#D4A96A]">Hızlı Bağlantılar</h3>
-            <ul className="space-y-2">
-              {[
-                { name: 'Ana Sayfa', href: '/' },
-                { name: 'Hakkımızda', href: '/hakkimizda' },
-                { name: 'Fiyatlar', href: '/fiyatlar' },
-                { name: 'Galeri', href: '/galeri' },
-                { name: 'İletişim', href: '/iletisim' },
-              ].map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-gray-300 hover:text-white transition-colors text-sm">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+            <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold mb-4 text-[#D4A96A]">
+              {isTr ? 'Hızlı Bağlantılar' : 'Quick Links'}
+            </h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href={`/${currentLocale}`} className="text-gray-300 hover:text-white transition-colors">
+                  {isTr ? 'Ana Sayfa' : 'Home'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${currentLocale}#experience`} className="text-gray-300 hover:text-white transition-colors">
+                  {isTr ? 'Yamaç Paraşütü' : 'Paragliding'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${currentLocale}#pricing`} className="text-gray-300 hover:text-white transition-colors">
+                  {isTr ? 'Fiyatlar & Paket' : 'Pricing & Packages'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${currentLocale}#pilot`} className="text-gray-300 hover:text-white transition-colors">
+                  {isTr ? 'Pilotumuz' : 'Our Pilot'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${currentLocale}#gallery`} className="text-gray-300 hover:text-white transition-colors">
+                  {isTr ? 'Fotoğraf Galerisi' : 'Photo Gallery'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${currentLocale}/blog`} className="text-gray-300 hover:text-white transition-colors">
+                  {isTr ? 'Blog & Rehberler' : 'Blog & Guides'}
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Legal Pages */}
           <div>
-            <h3 className="font-playfair text-lg font-semibold mb-4 text-[#D4A96A]">Yasal</h3>
-            <ul className="space-y-2">
-              {[
-                { name: 'Gizlilik Politikası', href: '/gizlilik-politikasi' },
-                { name: 'KVKK Aydınlatma Metni', href: '/kvkk' },
-                { name: 'Çerez Politikası', href: '/cerez-politikasi' },
-                { name: 'Açık Rıza Metni', href: '/acik-riza' },
-                { name: 'Uçuş Şartları', href: '/ucus-sartlari' },
-              ].map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-gray-300 hover:text-white transition-colors text-sm">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+            <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold mb-4 text-[#D4A96A]">
+              {isTr ? 'Yasal Politikalar' : 'Legal Policies'}
+            </h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href={`/${currentLocale}/gizlilik-politikasi`} className="text-gray-300 hover:text-white transition-colors">
+                  {isTr ? 'Gizlilik Politikası' : 'Privacy Policy'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${currentLocale}/kvkk`} className="text-gray-300 hover:text-white transition-colors">
+                  {isTr ? 'KVKK Aydınlatma Metni' : 'KVKK Text'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${currentLocale}/cerez-politikasi`} className="text-gray-300 hover:text-white transition-colors">
+                  {isTr ? 'Çerez Politikası' : 'Cookie Policy'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${currentLocale}/acik-riza`} className="text-gray-300 hover:text-white transition-colors">
+                  {isTr ? 'Açık Rıza Metni' : 'Consent Policy'}
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* NAP & Contact */}
+          {/* Contact Info */}
           <div>
-            <h3 className="font-playfair text-lg font-semibold mb-4 text-[#D4A96A]">İletişim</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start space-x-3 text-sm text-gray-300">
+            <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold mb-4 text-[#D4A96A]">
+              {isTr ? 'İletişim' : 'Contact'}
+            </h3>
+            <ul className="space-y-3.5 text-sm text-gray-300">
+              <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-[#4A9FD9] flex-shrink-0 mt-0.5" />
-                <span>[ADMIN TARAFINDAN DOLDURULACAK - Adres Bilgisi, Muratpaşa/Antalya]</span>
+                <span>{siteConfig.address}</span>
               </li>
-              <li className="flex items-center space-x-3 text-sm text-gray-300">
+              <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[#4A9FD9] flex-shrink-0" />
-                <a href="tel:+905555555555" className="hover:text-white transition-colors">
-                  [ADMIN TARAFINDAN DOLDURULACAK - Tel]
+                <a href={`tel:${siteConfig.phone.replace(/[^0-9]/g, '')}`} className="hover:text-white transition-colors">
+                  {siteConfig.phone}
                 </a>
               </li>
-              <li className="flex items-center space-x-3 text-sm text-gray-300">
+              <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-[#4A9FD9] flex-shrink-0" />
-                <a href="mailto:info@antalyaparasut.com" className="hover:text-white transition-colors">
-                  [ADMIN TARAFINDAN DOLDURULACAK - Email]
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-white transition-colors">
+                  {siteConfig.email}
                 </a>
               </li>
             </ul>
             <div className="mt-6">
               <a
-                href="https://wa.me/905555555555"
+                href={`https://wa.me/${siteConfig.whatsappNumber}?text=Merhaba`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-4 py-2 bg-[#22C55E] hover:bg-[#1fadd1] text-white rounded-md text-sm font-semibold transition-colors w-full"
+                className="inline-flex items-center justify-center px-4 py-2.5 bg-[#25D366] hover:bg-[#1da851] text-white rounded-xl text-sm font-bold transition-colors w-full shadow-md"
               >
                 WhatsApp'tan Yazın
               </a>
@@ -119,8 +146,8 @@ export default function Footer({ locale, dict }: { locale?: string; dict?: any }
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-8 mt-8 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Antalya Paragliding. Tüm hakları saklıdır.</p>
+        <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+          <p>&copy; {new Date().getFullYear()} Antalya Yamaç Paraşütü - Mehmet Bayraktar. Tüm hakları saklıdır.</p>
         </div>
       </div>
     </footer>
