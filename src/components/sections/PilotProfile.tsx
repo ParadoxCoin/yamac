@@ -1,5 +1,8 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
-import { Award, CheckCircle2, Star, ShieldCheck, Trophy, ExternalLink } from 'lucide-react';
+import { Award, CheckCircle2, Star, ShieldCheck, Trophy, ExternalLink, X } from 'lucide-react';
 
 const translations = {
   tr: {
@@ -16,7 +19,8 @@ const translations = {
     cert2Title: 'Test Raporlu Ekipmanlar',
     cert2Desc: 'Periyodik test ve bakımları yapılmış yedek paraşütlü takımlar',
     btnCert: 'THSF Resmi Pilot Sertifikası',
-    btnAward: 'Ödüller & Dereceler',
+    btnAward: '🏆 Ödüller & Dereceler (Şampiyonluklar)',
+    awardsTitle: 'Pilotumuzun Dereceleri ve Ödülleri',
   },
   en: {
     subtitle: 'In Safe Hands in the Sky',
@@ -32,7 +36,8 @@ const translations = {
     cert2Title: 'Certified Equipment',
     cert2Desc: 'Internationally test-certified tandem wings and reserve parachutes',
     btnCert: 'View THSF Official License',
-    btnAward: 'Awards & Trophies',
+    btnAward: '🏆 Awards & Trophies (Championships)',
+    awardsTitle: "Pilot's Trophies & Championship Awards",
   },
   ru: {
     subtitle: 'В Надёжных Руках',
@@ -48,7 +53,8 @@ const translations = {
     cert2Title: 'Сертифицированное снаряжение',
     cert2Desc: 'Международно сертифицированные крылья и запасной парашют',
     btnCert: 'Смотреть лицензию THSF',
-    btnAward: 'Награды и призы',
+    btnAward: '🏆 Награды и трофеи (Чемпионаты)',
+    awardsTitle: 'Кубки и награды с чемпионатов',
   },
   ar: {
     subtitle: 'في أيدٍ أمينة في السماء',
@@ -64,13 +70,22 @@ const translations = {
     cert2Title: 'معدات معتمدة دولياً',
     cert2Desc: 'أجنحة بشهادات اختبار دولية ومظلات احتياطية',
     btnCert: 'عرض الرخصة الرسمية THSF',
-    btnAward: 'الجوائز والأوسمة',
+    btnAward: '🏆 الكؤوس والجوائز (البطولات)',
+    awardsTitle: 'كؤوس وجوائز البطولات الرسمية',
   },
 };
+
+const AWARD_IMAGES = [
+  { id: 1, src: '/images/pilot/mehmet-bayraktar-odul.jpg', title: 'THSF Şampiyonluk Sertifikası' },
+  { id: 2, src: '/images/pilot/mehmet-bayraktar-odul-1.jpg', title: 'THSF Yamaç Paraşütü Yarışma Kupa Töreni' },
+  { id: 3, src: '/images/pilot/mehmet-bayraktar-odul-2.jpg', title: 'THSF Pilot Takımı ve Derece Kupaları' },
+];
 
 export default function PilotProfile({ locale }: { locale?: string; dict?: any }) {
   const currentLocale = locale || 'tr';
   const t = translations[currentLocale as keyof typeof translations] || translations.tr;
+  const [awardsModalOpen, setAwardsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
     <section id="pilot" className="py-20 bg-[#0B1D3A] text-[#F8F9FA]">
@@ -85,7 +100,7 @@ export default function PilotProfile({ locale }: { locale?: string; dict?: any }
           <p className="text-gray-300 text-lg">{t.desc}</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           {/* Pilot Photo */}
           <div className="lg:col-span-5 relative">
             <div className="relative h-[480px] w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-[#122B5C]">
@@ -154,17 +169,64 @@ export default function PilotProfile({ locale }: { locale?: string; dict?: any }
                 <ExternalLink className="w-4 h-4 ml-1" />
               </a>
 
-              <a
-                href="/images/pilot/mehmet-bayraktar-odul.jpg"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 border border-gray-600 hover:border-gray-400 text-gray-200 rounded-xl transition-all text-sm font-semibold"
+              <button
+                onClick={() => setAwardsModalOpen(true)}
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#D4A96A]/20 border border-[#D4A96A]/50 hover:bg-[#D4A96A]/30 text-[#E8C99B] rounded-xl transition-all text-sm font-bold shadow-lg"
               >
-                🏆 {t.btnAward}
-              </a>
+                {t.btnAward}
+              </button>
             </div>
           </div>
         </div>
+
+        {/* Awards Gallery Grid */}
+        <div className="pt-10 border-t border-gray-800">
+          <h3 className="text-center text-xl font-bold text-white mb-8 flex items-center justify-center gap-2">
+            <Trophy className="w-6 h-6 text-[#D4A96A]" />
+            {t.awardsTitle}
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {AWARD_IMAGES.map((img) => (
+              <div
+                key={img.id}
+                onClick={() => setSelectedImage(img.src)}
+                className="relative h-64 rounded-2xl overflow-hidden cursor-pointer group border-2 border-gray-700 hover:border-[#D4A96A] transition-all shadow-lg"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+                  <span className="text-white text-sm font-semibold">{img.title}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Awards Modal */}
+        {(awardsModalOpen || selectedImage) && (
+          <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4">
+            <button
+              onClick={() => { setAwardsModalOpen(false); setSelectedImage(null); }}
+              className="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors z-50"
+            >
+              <X className="w-8 h-8" />
+            </button>
+
+            <div className="relative max-w-4xl max-h-[85vh] w-full h-[600px]">
+              <Image
+                src={selectedImage || '/images/pilot/mehmet-bayraktar-odul.jpg'}
+                alt="Ödüller & Dereceler"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
