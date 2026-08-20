@@ -94,7 +94,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yamac-five.vercel.app";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yamacparasutuantalya.com";
   const brandName = "Antalya Yamaç Paraşütü";
   const isRtl = locale === 'ar';
 
