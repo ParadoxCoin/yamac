@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'Antalya Yamaç Paraşütü',
   brandName: 'Antalya Yamaç Paraşütü - Mehmet Bayraktar',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://yamac-five.vercel.app',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://yamacparasutuantalya.com',
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '905079046446',
   phone: process.env.NEXT_PUBLIC_PHONE || '0507 904 64 46',
   email: process.env.NEXT_PUBLIC_EMAIL || 'ymcbayraktar@gmail.com',

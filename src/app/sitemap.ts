@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { landingPages } from '@/lib/content/landingPages';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://yamac-five.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://yamacparasutuantalya.com';
   const locales = ['tr', 'en', 'ru', 'ar'];
 
   // Base pages for each locale
