@@ -4,15 +4,9 @@ import { siteConfig } from '@/lib/config/site';
 
 function ParagliderLogoIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2 9C2 4.5 6.5 2 12 2C17.5 2 22 4.5 22 9C17 7.5 14 7.5 12 7.5C10 7.5 7 7.5 2 9Z" fill="#4A9FD9" fillOpacity="0.25" />
-      <path d="M2 9C2 4.5 6.5 2 12 2C17.5 2 22 4.5 22 9" />
-      <line x1="2" y1="9" x2="11" y2="18" />
-      <line x1="7" y1="7.8" x2="11.5" y2="18" />
-      <line x1="17" y1="7.8" x2="12.5" y2="18" />
-      <line x1="22" y1="9" x2="13" y2="18" />
-      <circle cx="12" cy="19.5" r="1.5" fill="#D4A96A" />
-    </svg>
+    <span className={`inline-flex items-center justify-center ${className || ''}`} style={{ fontSize: '1.4rem', lineHeight: 1 }}>
+      🪂
+    </span>
   );
 }
 

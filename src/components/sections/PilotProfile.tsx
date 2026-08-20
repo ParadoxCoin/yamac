@@ -168,13 +168,6 @@ export default function PilotProfile({ locale }: { locale?: string; dict?: any }
                 {t.btnCert}
                 <ExternalLink className="w-4 h-4 ml-1" />
               </a>
-
-              <button
-                onClick={() => setAwardsModalOpen(true)}
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#D4A96A]/20 border border-[#D4A96A]/50 hover:bg-[#D4A96A]/30 text-[#E8C99B] rounded-xl transition-all text-sm font-bold shadow-lg"
-              >
-                {t.btnAward}
-              </button>
             </div>
           </div>
         </div>
