@@ -126,8 +126,8 @@ export default function FlightExperience({ locale }: { locale?: string; dict?: a
 
               <div className="relative aspect-[4/5] md:aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
                 <Image
-                  src="/images/gallery/falezler-turkuaz-ucus.jpg"
-                  alt="Antalya Falezler üzerinde turkuaz yamaç paraşütü uçuşu"
+                  src="/images/gallery/antalya-falezler-varyant-tandem.jpg"
+                  alt="Antalya Varyant Falezler üzerinde tandem yamaç paraşütü deneyimi"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"

@@ -83,6 +83,12 @@ export default function Footer({ locale }: { locale?: string; dict?: any }) {
                 ANTALYA<span className="text-[#4A9FD9]"> YAMAÇ PARAŞÜTÜ</span>
               </span>
             </Link>
+            <p className="text-[#D4A96A] text-sm italic font-medium">
+              {currentLocale === 'en' ? '🪂 Freedom is Hidden in the Wind'
+                : currentLocale === 'ru' ? '🪂 Свобода скрыта в ветре'
+                : currentLocale === 'ar' ? '🪂 الحرية مخبأة في الريح'
+                : '🪂 Özgürlük Rüzgarda Saklı'}
+            </p>
             <p className="text-gray-300 text-sm leading-relaxed">
               {t.desc}
             </p>

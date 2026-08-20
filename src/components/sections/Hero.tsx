@@ -7,6 +7,7 @@ import { siteConfig } from '@/lib/config/site';
 
 const translations = {
   tr: {
+    slogan: '🪂 Özgürlük Rüzgarda Saklı',
     badge: '23 Yıllık Deneyim - Mehmet Bayraktar',
     title: "Antalya'da Yamaç Paraşütü",
     subtitle: "Varyant ve Falezler üzerinde Akdeniz'in eşsiz manzarası eşliğinde THSF sertifikalı pilot ile tandem uçuş deneyimi.",
@@ -16,6 +17,7 @@ const translations = {
     wpMsg: "Merhaba, Antalya Varyant'ta yamaç paraşütü yapmak istiyorum.\n\nAd Soyad:\nKişi Sayısı:\nTercih Edilen Tarih:\nTercih Edilen Saat:\nYaklaşık Kilo:\nKonaklama Bölgesi:\n\nUçuş koşulları ve uygunluk hakkında bilgi almak istiyorum.",
   },
   en: {
+    slogan: '🪂 Freedom is Hidden in the Wind',
     badge: '23 Years Experience - Commercial Pilot',
     title: 'Paragliding in Antalya',
     subtitle: "Tandem paragliding experience over Antalya's Varyant viewpoint and Falezler cliffs above the Mediterranean Sea.",
@@ -25,6 +27,7 @@ const translations = {
     wpMsg: "Hello, I would like to book tandem paragliding in Antalya.\n\nFull Name:\nNumber of People:\nPreferred Date:\nPreferred Time:\nApproximate Weight:\nAccommodation Area:\n\nI would like information about flight conditions and availability.",
   },
   ru: {
+    slogan: '🪂 Свобода скрыта в ветре',
     badge: '23 Года Опыта - Лицензированный Пилот',
     title: 'Парапланеризм в Анталии',
     subtitle: 'Тандем полет на параплане над скалами Вариант и Фалезлер в Анталии. Сертифицированный пилот THSF с 23-летним стажем.',
@@ -34,6 +37,7 @@ const translations = {
     wpMsg: "Здравствуйте, я хочу забронировать полет на параплане в Анталии.\n\nИмя и Фамилия:\nКоличество человек:\nЖелаемая дата:\nЖелаемое время:\nВес (кг):\nОтель / Район:\n\nХочу узнать подробности и наличие свободных мест.",
   },
   ar: {
+    slogan: '🪂 الحرية مخبأة في الريح',
     badge: '٢٣ عاماً خبرة - طيار تجاري',
     title: 'الطيران الشراعي في أنطاليا',
     subtitle: 'رحلة طيران شراعي مزدوج فوق جروف أنطاليا (كونيالتي فاريانت وفالزلر) مع البحر الأبيض المتوسط. طيار معتمد دولياً THSF.',
@@ -78,6 +82,11 @@ export default function Hero({ locale }: { locale?: string; dict?: any }) {
       </div>
 
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 container mx-auto pt-20">
+        {/* Brand Slogan */}
+        <p className="text-[#D4A96A] text-sm md:text-base font-semibold italic tracking-widest mb-3 drop-shadow-lg opacity-90">
+          {t.slogan}
+        </p>
+
         <span className="inline-block px-4 py-1.5 bg-[#4A9FD9]/20 border border-[#4A9FD9]/30 rounded-full text-[#4A9FD9] font-bold text-xs md:text-sm mb-4 tracking-wider uppercase backdrop-blur-sm">
           {t.badge}
         </span>

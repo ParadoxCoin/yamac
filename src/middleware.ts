@@ -5,26 +5,12 @@ const locales = ['tr', 'en', 'ru', 'ar'];
 const defaultLocale = 'tr';
 
 function getLocale(request: NextRequest): string {
+  // Only respect explicit cookie preference (set when user clicks language switcher)
   const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
   if (cookieLocale && locales.includes(cookieLocale)) {
     return cookieLocale;
   }
-
-  const acceptLanguage = request.headers.get('accept-language') || '';
-  const preferredLanguages = acceptLanguage
-    .split(',')
-    .map((lang) => {
-      const [code, priority] = lang.trim().split(';q=');
-      return { code: code.split('-')[0].toLowerCase(), priority: priority ? parseFloat(priority) : 1 };
-    })
-    .sort((a, b) => b.priority - a.priority);
-
-  for (const lang of preferredLanguages) {
-    if (locales.includes(lang.code)) {
-      return lang.code;
-    }
-  }
-
+  // Always default to Turkish regardless of browser language
   return defaultLocale;
 }
 
