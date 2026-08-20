@@ -1,42 +1,42 @@
 import type { MetadataRoute } from 'next';
+import { landingPages } from '@/lib/content/landingPages';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://yamac-five.vercel.app';
-
   const locales = ['tr', 'en', 'ru', 'ar'];
 
-  const pages = [
+  // Base pages for each locale
+  const basePages = [
     '',
-    '/antalya-yamac-parasutu',
-    '/antalya-tandem-yamac-parasutu',
-    '/antalya-paragliding',
-    '/antalya-paragliding-price',
-    '/antalya-varyant-yamac-parasutu',
-    '/antalya-falezler-yamac-parasutu',
-    '/antalya-konyaalti-yamac-parasutu',
-    '/antalya-muratpasa-yamac-parasutu',
-    '/antalya-yamac-parasutu-fiyatlari',
-    '/antalya-yamac-parasutu-randevu',
     '/blog',
     '/gizlilik-politikasi',
     '/kvkk',
+    '/cerez-politikasi',
+    '/acik-riza',
   ];
+
+  // Landing page slugs from landingPages registry
+  const landingSlugs = Object.keys(landingPages).map((slug) => `/${slug}`);
+
+  // Combine unique pages
+  const allPagePaths = Array.from(new Set([...basePages, ...landingSlugs]));
 
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of locales) {
-    for (const page of pages) {
+    for (const pagePath of allPagePaths) {
       entries.push({
-        url: `${baseUrl}/${locale}${page}`,
+        url: `${baseUrl}/${locale}${pagePath}`,
         lastModified: new Date(),
-        changeFrequency: page === '' ? 'daily' : 'weekly',
-        priority: page === '' ? 1.0 : page.includes('blog') ? 0.7 : 0.8,
+        changeFrequency: pagePath === '' ? 'daily' : pagePath.includes('blog') ? 'weekly' : 'monthly',
+        priority: pagePath === '' ? 1.0 : pagePath.includes('blog') ? 0.7 : 0.8,
         alternates: {
           languages: {
-            'tr-TR': `${baseUrl}/tr${page}`,
-            'en-US': `${baseUrl}/en${page}`,
-            'ru-RU': `${baseUrl}/ru${page}`,
-            'ar-SA': `${baseUrl}/ar${page}`,
+            'tr-TR': `${baseUrl}/tr${pagePath}`,
+            'en-US': `${baseUrl}/en${pagePath}`,
+            'ru-RU': `${baseUrl}/ru${pagePath}`,
+            'ar-SA': `${baseUrl}/ar${pagePath}`,
+            'x-default': `${baseUrl}/tr${pagePath}`,
           },
         },
       });
